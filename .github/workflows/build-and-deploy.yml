@@ -27,9 +27,10 @@ jobs:
       
     - name: Distribute
       run: |
-        npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
         npm login
-        npm run publish
+        echo ${{ secrects.NPM_USERNAME }}
+        echo ${{ secrects.NPM_PASSWORD }}
+        npm publish
       working-directory: ./dist
       env:
         CI: true
