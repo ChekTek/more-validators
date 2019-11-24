@@ -16,7 +16,7 @@ This is an addition to Angular's form validators.
 ### component.ts
 
 ```TypeScript
-   import { MoreValidators } from './more-validators';
+   import { MoreValidators } from 'more-validators';
     ...
    validationTestForm: FormGroup;
     ...

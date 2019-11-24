@@ -1,10 +1,17 @@
 {
   "name": "more-validators",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "This is an addition to Angular's form validators.",
-  "main": "more-validators.ts",
+  "main": "dist/more-validators.js",
+  "types": "dist",
   "scripts": {
+    "build": "tsc -p .",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@angular/forms": "^8.2.14",
+    "@angular/core": "~8.2.13",
+    "rxjs": "~6.4.0"
   },
   "repository": {
     "type": "git",
