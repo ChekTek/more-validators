@@ -24,12 +24,11 @@ jobs:
     
     - name: Build
       run: npm run build --if-present
-    
-    - name: Login NPM
-      run: npm login
       
     - name: Distribute
-      run: npm publish
+      run: |
+        npm ci
+        npm publish
       working-directory: ./dist
       env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
