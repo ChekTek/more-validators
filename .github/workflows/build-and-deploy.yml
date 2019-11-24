@@ -12,7 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
@@ -24,15 +23,9 @@ jobs:
     
     - name: Build
       run: npm run build --if-present
-      
-    - name: Distribute
-  
-  publish-npm:
-    runs-on: ubuntu-latest
-    steps:
-      - run: npm ci
-        working-directory: ./dist
-      - run: npm publish
-        working-directory: ./dist
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+    
+    - name: deploy
+      run: | 
+        npm publish
+        echo username
+        echo password
