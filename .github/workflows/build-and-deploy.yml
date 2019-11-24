@@ -25,6 +25,9 @@ jobs:
     - name: Build
       run: npm run build --if-present
     
+    - name: Login NPM
+      run: npm login
+      
     - name: Distribute
       run: npm publish
       working-directory: ./dist
