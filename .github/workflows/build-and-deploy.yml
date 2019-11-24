@@ -28,7 +28,7 @@ jobs:
     - name: Distribute
       run: |
         npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-        npm run trypublish
+        npm run publish
       working-directory: ./dist
       env:
         CI: true
