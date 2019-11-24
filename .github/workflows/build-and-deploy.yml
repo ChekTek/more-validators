@@ -26,13 +26,12 @@ jobs:
       run: npm run build --if-present
       
     - name: Distribute
-      run: |
-        npm login
-        echo ${{ secrects.NPM_USERNAME }}
-        echo ${{ secrects.NPM_PASSWORD }}
-        npm publish
-      working-directory: ./dist
-      env:
-        CI: true
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm ci
+      - run: npm publish
+        working-directory: ./dist
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
