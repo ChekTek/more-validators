@@ -25,7 +25,9 @@ jobs:
       run: npm run build --if-present
     
     - name: deploy
+      working-directory: ./dist
       run: | 
-        npm publish
+        npm login
         echo username
         echo password
+        npm publish
