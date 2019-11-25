@@ -1,5 +1,6 @@
 **/node_modules
 dist/*
+.idea
 !dist/package.json
 !dist/LICENSE
 !dist/readme.md
