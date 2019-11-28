@@ -1,8 +1,10 @@
 {
   "jest": {
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/src/**/*.test.ts"
+    ],
     "collectCoverage": true,
     "coverageReporters": [
       "html"
@@ -10,7 +12,8 @@
   },
   "scripts": {
     "build": "tsc -p .",
-    "test": "jest --watch --expand",
+    "test": "jest --watchAll --expand --collectCoverage",
+    "coverage":"jest --collectCoverage",
     "test:ci": "jest"
   },
   "dependencies": {
