@@ -10,7 +10,8 @@
   },
   "scripts": {
     "build": "tsc -p .",
-    "test": "jest --watch --expand"
+    "test": "jest --watch --expand",
+    "test:ci": "jest"
   },
   "dependencies": {
     "@angular/forms": "^8.2.14",
