@@ -19,5 +19,9 @@
       "dom"
     ],
     "esModuleInterop": true
-  }
+  },
+  // "exclude": [
+  //   "src/**/*.test.ts",
+  //   "dist/**/*.js"
+  // ]
 }
