@@ -8,6 +8,9 @@ This is an addition to Angular's form validators.
 
 ## Validators
 
+* requireTrimmed
+* minWithCommas
+* maxWithCommas
 * minLengthTrimmed
 * maxLengthTrimmed
 

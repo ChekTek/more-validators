@@ -16,9 +16,9 @@ describe('Max Length Trimmed (3)', () => {
         })
         validator = MoreValidators.maxLengthTrimmed(3);
         control = new FormControl('');
-        error = { "maxLengthTrimmed": true };
+        error = { maxLengthTrimmed: true };
     })
-    
+
     test('undefined should be invalid', () => {
         control.setValue(undefined);
         expect(validator(control)).toEqual(error);
@@ -29,32 +29,32 @@ describe('Max Length Trimmed (3)', () => {
         expect(validator(control)).toEqual(error);
     })
 
-    test('"123"   should be valid', () => {
+    test('the max should be valid', () => {
         control.setValue("123");
         expect(validator(control)).toBeNull();
     })
 
-    test('"123  " should be valid', () => {
+    test('extra spaces should be valid', () => {
         control.setValue("123  ");
         expect(validator(control)).toBeNull();
     })
 
-    test('""    should be valid', () => {
+    test('black should be valid', () => {
         control.setValue("");
         expect(validator(control)).toBeNull();
     })
 
-    test('"    " should be valid', () => {
+    test('spaces should be valid', () => {
         control.setValue("    ");
         expect(validator(control)).toBeNull();
     })
 
-    test('"1234" should be invalid', () => {
+    test('over the max should be invalid', () => {
         control.setValue("1234");
         expect(validator(control)).toEqual(error);
     })
 
-    test('"1234  " should be invalid', () => {
+    test('over the max and extra spaces should be invalid', () => {
         control.setValue("1234  ");
         expect(validator(control)).toEqual(error);
     })

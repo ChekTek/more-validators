@@ -3,9 +3,12 @@ import { MoreValidators } from '../index';
 
 export const maxLengthTrimmed = (max: number): ValidatorFn => {
     return (control: AbstractControl): { [key: string]: boolean } | null => {
-        const value = control.value;
         const key = MoreValidators.keys.maxLengthTrimmed;
         const error = { [key]: true };
+
+        if (!control) return error;
+
+        const value = control.value;
 
         if (value === undefined) return error;
         if (value === null) return error;
