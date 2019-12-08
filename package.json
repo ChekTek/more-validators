@@ -12,7 +12,8 @@
   },
   "scripts": {
     "build": "tsc -p . && cp ./readme.md ./dist/",
-    "test": "jest --watchAll --expand --collectCoverage",
+    "test": "jest --collectCoverage",
+    "watch": "jest --watchAll --expand --collectCoverage",
     "coverage": "jest --collectCoverage",
     "test:ci": "jest"
   },
