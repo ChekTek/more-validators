@@ -19,6 +19,10 @@ describe('Min Length Trimmed (3)', () => {
         error = { minLengthTrimmed: true };
     })
 
+    test('undefined control should be invalid', () => {
+        expect(validator(undefined)).toEqual(error);
+    })
+    
     test('undefined should be invalid', () => {
         control.setValue(undefined);
         expect(validator(control)).toEqual(error);
