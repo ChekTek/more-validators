@@ -1,5 +1,8 @@
 # More Validators
 
+![build](https://github.com/ChekTek/more-validators/workflows/build/badge.svg)
+![100% test coverage](https://github.com/ChekTek/more-validators/workflows/test%20coverage/badge.svg)
+
 This is an addition to Angular's form validators.
 
 ## Installation
