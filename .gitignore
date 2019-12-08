@@ -4,6 +4,5 @@ dist/*
 coverage/*
 !dist/package.json
 !dist/LICENSE
-!dist/readme.md
 !dist/.npmrc
 
