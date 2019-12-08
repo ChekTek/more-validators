@@ -11,7 +11,7 @@ This is an addition to Angular's form validators.
 
 ## Validators
 
-* requireTrimmed
+* requiredTrimmed
 * minLengthTrimmed
 * maxLengthTrimmed
 * minWithCommas
