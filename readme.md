@@ -31,7 +31,7 @@ This is an addition to Angular's form validators.
     this.validationTestForm = this.fromBuilder.group({
       myInput: new FormControl('',
         [
-          Validators.required,                  // <-- built in angular validator
+          Validators.minLength(3),              // <-- built in angular validator
           MoreValidators.minLengthTrimmed(3)    // <-- more validators
         ])
     })
