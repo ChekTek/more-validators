@@ -4,7 +4,6 @@
   "description": "This is an addition to Angular's form validators.",
   "main": "index.js",
   "types": "index.d.ts",
-  "files": ["/**/*"],
   "scripts": {
     "build": "",
     "test": "echo \"Error: no test specified\" && exit 1",
