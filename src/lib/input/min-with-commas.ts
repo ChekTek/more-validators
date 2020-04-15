@@ -1,5 +1,5 @@
 import { ValidatorFn, AbstractControl } from '@angular/forms';
-import { MoreValidators } from '../index';
+import { MoreValidators } from '../../index';
 
 export const minWithCommas = (min: number): ValidatorFn => {
     return (control: AbstractControl): { [key: string]: boolean } | null => {

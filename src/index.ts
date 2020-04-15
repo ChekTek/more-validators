@@ -1,8 +1,8 @@
-import { minLengthTrimmed } from './lib/min-length-trimmed';
-import { maxLengthTrimmed } from './lib/max-length-trimmed';
-import { requiredTrimmed } from './lib/required-trimmed';
-import { minWithCommas } from './lib/min-with-commas';
-import { maxWithCommas } from './lib/max-with-commas';
+import { minLengthTrimmed } from './lib/input/min-length-trimmed';
+import { maxLengthTrimmed } from './lib/input/max-length-trimmed';
+import { requiredTrimmed } from './lib/input/required-trimmed';
+import { minWithCommas } from './lib/input/min-with-commas';
+import { maxWithCommas } from './lib/input/max-with-commas';
 
 export class MoreValidators {
     static minLengthTrimmed = minLengthTrimmed;

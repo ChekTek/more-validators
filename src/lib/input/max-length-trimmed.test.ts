@@ -2,27 +2,27 @@ import { FormControl, ReactiveFormsModule, ValidatorFn } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TestBed } from '@angular/core/testing';
-import { MoreValidators } from "../index";
+import { MoreValidators } from "../../index";
 
-describe('Required Trimmed', () => {
+describe('Max Length Trimmed (3)', () => {
     let control: FormControl;
     let validator: ValidatorFn;
-    let error: { requiredTrimmed: boolean };
+    let error: { maxLengthTrimmed: boolean };
 
     beforeAll(() => {
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule, BrowserAnimationsModule, MoreValidators],
             declarations: [MoreValidators]
         })
-        validator = MoreValidators.requiredTrimmed();
+        validator = MoreValidators.maxLengthTrimmed(3);
         control = new FormControl('');
-        error = { requiredTrimmed: true };
+        error = { maxLengthTrimmed: true };
     })
 
     test('undefined control should be invalid', () => {
         expect(validator(undefined)).toEqual(error);
     })
-
+    
     test('undefined should be invalid', () => {
         control.setValue(undefined);
         expect(validator(control)).toEqual(error);
@@ -33,23 +33,33 @@ describe('Required Trimmed', () => {
         expect(validator(control)).toEqual(error);
     })
 
-    test('a value should be valid', () => {
+    test('the max should be valid', () => {
         control.setValue("123");
         expect(validator(control)).toBeNull();
     })
 
-    test('a value with trailing spaces should be valid', () => {
-        control.setValue("123   ");
+    test('extra spaces should be valid', () => {
+        control.setValue("123  ");
         expect(validator(control)).toBeNull();
     })
 
-    test('blank should be invalid', () => {
+    test('black should be valid', () => {
         control.setValue("");
+        expect(validator(control)).toBeNull();
+    })
+
+    test('spaces should be valid', () => {
+        control.setValue("    ");
+        expect(validator(control)).toBeNull();
+    })
+
+    test('over the max should be invalid', () => {
+        control.setValue("1234");
         expect(validator(control)).toEqual(error);
     })
 
-    test('spaces should be invalid', () => {
-        control.setValue("   ");
+    test('over the max and extra spaces should be invalid', () => {
+        control.setValue("1234  ");
         expect(validator(control)).toEqual(error);
     })
 })

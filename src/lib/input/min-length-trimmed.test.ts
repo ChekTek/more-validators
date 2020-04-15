@@ -2,7 +2,7 @@ import { FormControl, ReactiveFormsModule, ValidatorFn } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TestBed } from '@angular/core/testing';
-import { MoreValidators } from "../index";
+import { MoreValidators } from "../../index";
 
 describe('Min Length Trimmed (3)', () => {
     let control: FormControl;
