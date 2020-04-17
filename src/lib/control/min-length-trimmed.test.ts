@@ -4,19 +4,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestBed } from '@angular/core/testing';
 import { MoreValidators } from "../../index";
 
-describe('Max Length Trimmed (3)', () => {
+describe('Min Length Trimmed (3)', () => {
     let control: FormControl;
     let validator: ValidatorFn;
-    let error: { maxLengthTrimmed: boolean };
+    let error: { minLengthTrimmed: boolean };
 
     beforeAll(() => {
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule, BrowserAnimationsModule, MoreValidators],
             declarations: [MoreValidators]
         })
-        validator = MoreValidators.maxLengthTrimmed(3);
+        validator = MoreValidators.control.minLengthTrimmed(3);
         control = new FormControl('');
-        error = { maxLengthTrimmed: true };
+        error = { minLengthTrimmed: true };
     })
 
     test('undefined control should be invalid', () => {
@@ -33,33 +33,28 @@ describe('Max Length Trimmed (3)', () => {
         expect(validator(control)).toEqual(error);
     })
 
-    test('the max should be valid', () => {
+    test('the min should be valid', () => {
         control.setValue("123");
         expect(validator(control)).toBeNull();
     })
 
-    test('extra spaces should be valid', () => {
+    test('not needed spaces should be valid', () => {
         control.setValue("123  ");
         expect(validator(control)).toBeNull();
     })
 
-    test('black should be valid', () => {
-        control.setValue("");
-        expect(validator(control)).toBeNull();
+    test('under the min should be invalid', () => {
+        control.setValue("12");
+        expect(validator(control)).toEqual(error)
     })
 
-    test('spaces should be valid', () => {
-        control.setValue("    ");
-        expect(validator(control)).toBeNull();
-    })
-
-    test('over the max should be invalid', () => {
-        control.setValue("1234");
+    test('filling spaces should be invalid', () => {
+        control.setValue("12   ");
         expect(validator(control)).toEqual(error);
     })
 
-    test('over the max and extra spaces should be invalid', () => {
-        control.setValue("1234  ");
-        expect(validator(control)).toEqual(error);
+    test('only spaces should be invalid', () => {
+        control.setValue("     ");
+        expect(validator(control)).toEqual(error)
     })
 })

@@ -6,20 +6,20 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { MoreValidators } from "../../index";
 
-describe('Min With Commas', () => {
-    const min = 1001;
+fdescribe('Max With Commas', () => {
+    const max = 1001;
     let control: FormControl;
     let validator: ValidatorFn;
-    let error: { minWithCommas: boolean };
+    let error: { maxWithCommas: boolean };
 
     beforeAll(() => {
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule, BrowserAnimationsModule, MoreValidators],
             declarations: [MoreValidators]
         })
-        validator = MoreValidators.minWithCommas(min)
+        validator = MoreValidators.control.maxWithCommas(max)
         control = new FormControl('');
-        error = { minWithCommas: true };
+        error = { maxWithCommas: true };
     })
 
     test('undefined control should be invalid', () => {
@@ -36,34 +36,34 @@ describe('Min With Commas', () => {
         expect(validator(control)).toEqual(error);
     })
 
-    test('under the min should be invalid', () => {
+    test('under the max should be valid', () => {
         control.setValue('1000');
-        expect(validator(control)).toEqual(error);
-    })
-
-    test('under the min with commas should be invalid', () => {
-        control.setValue('1,000');
-        expect(validator(control)).toEqual(error);
-    })
-
-    test('on the min should be valid', () => {
-        control.setValue(min);
         expect(validator(control)).toBeNull();
     })
 
-    test('on the min with commas should be valid', () => {
+    test('on the max should be valid', () => {
+        control.setValue(max);
+        expect(validator(control)).toBeNull();
+    })
+
+    test('on the max with commas should be valid', () => {
         control.setValue('1,001');
         expect(validator(control)).toBeNull();
     })
 
-    test('over the min should be valid', () => {
-        control.setValue('1002');
+    test('under the max with commas should be valid', () => {
+        control.setValue('1,000');
         expect(validator(control)).toBeNull();
     })
 
-    test('over the min with commas should be valid', () => {
+    test('over the max should be invalid', () => {
+        control.setValue('1002');
+        expect(validator(control)).toEqual(error);
+    })
+
+    test('over the max with commas should be invalid', () => {
         control.setValue('1,002');
-        expect(validator(control)).toBeNull();
+        expect(validator(control)).toEqual(error);
     })
 
 });

@@ -1,31 +1,28 @@
-import { FormControl, ValidatorFn, ReactiveFormsModule, Validators } from "@angular/forms";
+import { FormControl, ReactiveFormsModule, ValidatorFn } from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TestBed } from '@angular/core/testing';
-
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
 import { MoreValidators } from "../../index";
 
-fdescribe('Max With Commas', () => {
-    const max = 1001;
+describe('Max Length Trimmed (3)', () => {
     let control: FormControl;
     let validator: ValidatorFn;
-    let error: { maxWithCommas: boolean };
+    let error: { maxLengthTrimmed: boolean };
 
     beforeAll(() => {
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule, BrowserAnimationsModule, MoreValidators],
             declarations: [MoreValidators]
         })
-        validator = MoreValidators.maxWithCommas(max)
+        validator = MoreValidators.control.maxLengthTrimmed(3);
         control = new FormControl('');
-        error = { maxWithCommas: true };
+        error = { maxLengthTrimmed: true };
     })
 
     test('undefined control should be invalid', () => {
         expect(validator(undefined)).toEqual(error);
     })
-
+    
     test('undefined should be invalid', () => {
         control.setValue(undefined);
         expect(validator(control)).toEqual(error);
@@ -36,34 +33,33 @@ fdescribe('Max With Commas', () => {
         expect(validator(control)).toEqual(error);
     })
 
-    test('under the max should be valid', () => {
-        control.setValue('1000');
+    test('the max should be valid', () => {
+        control.setValue("123");
         expect(validator(control)).toBeNull();
     })
 
-    test('on the max should be valid', () => {
-        control.setValue(max);
+    test('extra spaces should be valid', () => {
+        control.setValue("123  ");
         expect(validator(control)).toBeNull();
     })
 
-    test('on the max with commas should be valid', () => {
-        control.setValue('1,001');
+    test('black should be valid', () => {
+        control.setValue("");
         expect(validator(control)).toBeNull();
     })
 
-    test('under the max with commas should be valid', () => {
-        control.setValue('1,000');
+    test('spaces should be valid', () => {
+        control.setValue("    ");
         expect(validator(control)).toBeNull();
     })
 
     test('over the max should be invalid', () => {
-        control.setValue('1002');
+        control.setValue("1234");
         expect(validator(control)).toEqual(error);
     })
 
-    test('over the max with commas should be invalid', () => {
-        control.setValue('1,002');
+    test('over the max and extra spaces should be invalid', () => {
+        control.setValue("1234  ");
         expect(validator(control)).toEqual(error);
     })
-
-});
+})

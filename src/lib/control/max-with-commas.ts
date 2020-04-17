@@ -1,9 +1,9 @@
-import { ValidatorFn, AbstractControl } from '@angular/forms';
+import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { MoreValidators } from '../../index';
 
 export const maxWithCommas = (max: number): ValidatorFn => {
-    return (control: AbstractControl): { [key: string]: boolean } | null => {
-        const key = MoreValidators.keys.maxWithCommas;
+    return (control: AbstractControl): ValidationErrors | null => {
+        const key = MoreValidators.control.keys.maxWithCommas;
         const error = { [key]: true };
 
         if (!control) return error;
