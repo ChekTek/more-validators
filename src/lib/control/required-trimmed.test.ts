@@ -15,7 +15,7 @@ describe('Required Trimmed', () => {
             declarations: [MoreValidators]
         })
         validator = MoreValidators.control.requiredTrimmed();
-        control = new FormControl('');
+        control = new FormControl();
         error = { requiredTrimmed: true };
     })
 

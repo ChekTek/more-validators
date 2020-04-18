@@ -1,31 +1,41 @@
-import { ValidatorFn, FormGroup, ValidationErrors, Validators } from "@angular/forms";
-import { MoreFormUtils } from '../more-form-utils';
+import {
+  ValidatorFn,
+  FormGroup,
+  ValidationErrors,
+  Validators,
+} from "@angular/forms";
+import { MoreFormUtils } from "../more-form-utils";
+import { MoreValidators } from "../../index";
 
 export const atLeastOne = (...controls: string[]): ValidatorFn => (
-    group: FormGroup
+  group: FormGroup
 ): ValidationErrors | null => {
-    const key = "atLeastOne";
+  const key = MoreValidators.form.keys.atLeastOne;
+  const error = { [key]: true };
 
-    if (!controls) {
-        controls = Object.keys(group.controls);
-    }
+  if (group === undefined) return error;
+  if (group === null) return error;
 
-    const hasAtLeastOne =
-        group &&
-        group.controls &&
-        controls.some((control) => !Validators.required(group.controls[control]));
+  if (controls.length === 0) {
+    controls = Object.keys(group.controls);
+  }
 
-    if (!hasAtLeastOne) {
-        controls.forEach((controlName) => {
-            const control = group.get(controlName);
-            MoreFormUtils.addError(control, key);
-        });
-    } else {
-        controls.forEach((controlName) => {
-            const control = group.get(controlName);
-            MoreFormUtils.removeError(control, key);
-        });
-    }
+  const hasAtLeastOne =
+    group &&
+    group.controls &&
+    controls.some((control) => !Validators.required(group.controls[control]));
 
-    return hasAtLeastOne ? null : { key: true };
+  if (!hasAtLeastOne) {
+    controls.forEach((controlName) => {
+      const control = group.get(controlName);
+      MoreFormUtils.addError(control, key);
+    });
+  } else {
+    controls.forEach((controlName) => {
+      const control = group.get(controlName);
+      MoreFormUtils.removeError(control, key);
+    });
+  }
+
+  return hasAtLeastOne ? null : error;
 };

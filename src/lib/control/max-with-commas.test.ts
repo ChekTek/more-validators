@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { MoreValidators } from "../../index";
 
-fdescribe('Max With Commas', () => {
+describe('Max With Commas', () => {
     const max = 1001;
     let control: FormControl;
     let validator: ValidatorFn;
@@ -18,7 +18,7 @@ fdescribe('Max With Commas', () => {
             declarations: [MoreValidators]
         })
         validator = MoreValidators.control.maxWithCommas(max)
-        control = new FormControl('');
+        control = new FormControl();
         error = { maxWithCommas: true };
     })
 

@@ -29,7 +29,7 @@ This is an addition to Angular's form validators.
    constructor(private readonly fromBuilder: FormBuilder) { }
     ...
     this.validationTestForm = this.fromBuilder.group({
-      myInput: new FormControl('',
+      myInput: new FormControl(null,
         [
           Validators.minLength(3),              // <-- built in angular validator
           MoreValidators.minLengthTrimmed(3)    // <-- more validators

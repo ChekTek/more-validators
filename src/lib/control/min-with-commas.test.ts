@@ -18,7 +18,7 @@ describe('Min With Commas', () => {
             declarations: [MoreValidators]
         })
         validator = MoreValidators.control.minWithCommas(min)
-        control = new FormControl('');
+        control = new FormControl();
         error = { minWithCommas: true };
     })
 

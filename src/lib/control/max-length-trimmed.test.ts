@@ -15,7 +15,7 @@ describe('Max Length Trimmed (3)', () => {
             declarations: [MoreValidators]
         })
         validator = MoreValidators.control.maxLengthTrimmed(3);
-        control = new FormControl('');
+        control = new FormControl();
         error = { maxLengthTrimmed: true };
     })
 
