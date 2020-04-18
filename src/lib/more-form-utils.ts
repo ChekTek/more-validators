@@ -9,7 +9,7 @@ export class MoreFormUtils {
 
     static removeError(control: AbstractControl, errorKey: string): void {
         let errors = control.errors ? control.errors : {};
-        delete errors["atLeastOne"];
+        delete errors[errorKey];
         control.setErrors(errors);
     }
 }
