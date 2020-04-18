@@ -11,11 +11,20 @@ This is an addition to Angular's form validators.
 
 ## Validators
 
+### Controls
+
 * requiredTrimmed
 * minLengthTrimmed
 * maxLengthTrimmed
 * minWithCommas
 * maxWithCommas
+* alpha
+* alphaNumeric
+* numeric
+
+### Form
+
+* atLeastOne
 
 ## Usage
 
@@ -29,11 +38,15 @@ This is an addition to Angular's form validators.
    constructor(private readonly fromBuilder: FormBuilder) { }
     ...
     this.validationTestForm = this.fromBuilder.group({
-      myInput: new FormControl(null,
+      myInput1: new FormControl(null),
+      myInput2: new FormControl(null,
         [
-          Validators.minLength(3),              // <-- built in angular validator
-          MoreValidators.minLengthTrimmed(3)    // <-- more validators
+          Validators.minLength(3),         // <-- built in angular validator
+          MoreValidators.controls.minLengthTrimmed(3) // <-- more validators
         ])
+    },
+    {
+      validators: [MoreValidators.form.atLeastOne("myInput1", "myInput2")],
     })
 ```
 
@@ -42,7 +55,8 @@ This is an addition to Angular's form validators.
 ```HTML
     <form [formGroup]="validationTestForm">
     ...
-    <input formControlName="myInput" />
+    <input formControlName="myInput1" />
+    <input formControlName="myInput2" />
     ...
     </form>
 ```
