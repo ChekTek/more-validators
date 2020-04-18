@@ -1,7 +1,7 @@
 import { ValidatorFn, FormGroup, ValidationErrors, Validators } from "@angular/forms";
 import { MoreFormUtils } from '../more-form-utils';
 
-const atLeastOne = (...controls: string[]): ValidatorFn => (
+export const atLeastOne = (...controls: string[]): ValidatorFn => (
     group: FormGroup
 ): ValidationErrors | null => {
     const key = "atLeastOne";
