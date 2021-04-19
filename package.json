@@ -20,6 +20,7 @@
   },
   "scripts": {
     "build": "tsc -p . && cp ./readme.md ./dist/",
+    "build-windows": "tsc -p .",
     "test": "jest --collectCoverage",
     "watch": "jest --watchAll --expand --collectCoverage",
     "coverage": "jest --collectCoverage",
@@ -27,10 +28,10 @@
   },
   "dependencies": {
     "@angular/forms": "^9.1.1",
-    "@types/jest": "^25.2.1",
     "rxjs": "~6.5.5"
   },
   "devDependencies": {
+    "@types/jest": "^25.2.1",
     "@angular/animations": "^9.1.1",
     "@angular/common": "^9.1.1",
     "@angular/compiler": "^9.1.1",
