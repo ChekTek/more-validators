@@ -23,10 +23,9 @@ jobs:
     
     - name: Build
       run: npm run build --if-present
-
-    - name: Move to Distribution Folder
-      run: cd dist
-
-    - uses: JS-DevTools/npm-publish@v1
+      
+    - name: Publish
+      uses: JS-DevTools/npm-publish@v1
       with:
         token: ${{ secrets.NPM_TOKEN }}
+        package: ./dist/package.json
