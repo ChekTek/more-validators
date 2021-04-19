@@ -1,7 +1,6 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-      "baseUrl": "./",
       "outDir": "./dist",
       "sourceMap": false,
       "declaration": true,
@@ -20,8 +19,4 @@
       ],
       "esModuleInterop": true
     },
-    // "exclude": [
-    //   "src/**/*.test.ts",
-    //   "dist/**/*.js"
-    // ]
   }
