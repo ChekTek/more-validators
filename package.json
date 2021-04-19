@@ -19,8 +19,7 @@
     }
   },
   "scripts": {
-    "build": "tsc --project tsconfig.json && cp ./readme.md ./dist/",
-    "build-windows": "tsc -p .",
+    "build": "tsc . && cp ./readme.md ./dist/",
     "test": "jest --collectCoverage",
     "watch": "jest --watchAll --expand --collectCoverage",
     "coverage": "jest --collectCoverage",
