@@ -1,6 +1,6 @@
 {
   "name": "more-validators",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "This is an addition to Angular's form validators.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -9,9 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@angular/forms": "^8.2.14",
-    "@angular/core": "~8.2.13",
-    "rxjs": "~6.4.0"
+    "@angular/forms": "^11.2.10",
+    "rxjs": "~6.6.7"
   },
   "repository": {
     "type": "git",
