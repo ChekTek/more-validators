@@ -4,5 +4,5 @@ dist/*
 coverage/*
 !dist/package.json
 !dist/LICENSE
-!dist/.npmrc
+!dist/.npmignore
 
