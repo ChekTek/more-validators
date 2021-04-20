@@ -1,7 +1,7 @@
-import { FormControl, ReactiveFormsModule, ValidatorFn } from "@angular/forms";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { TestBed } from '@angular/core/testing';
+import { FormControl, ValidatorFn } from "@angular/forms";
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//
+// import { TestBed } from '@angular/core/testing';
 import { MoreValidators } from "../../index";
 
 describe('Required Trimmed', () => {
@@ -10,10 +10,10 @@ describe('Required Trimmed', () => {
     let error: { requiredTrimmed: boolean };
 
     beforeAll(() => {
-        TestBed.configureTestingModule({
-            imports: [ReactiveFormsModule, BrowserAnimationsModule, MoreValidators],
-            declarations: [MoreValidators]
-        })
+        // TestBed.configureTestingModule({
+        //     imports: [ReactiveFormsModule, BrowserAnimationsModule, MoreValidators],
+        //     declarations: [MoreValidators]
+        // })
         validator = MoreValidators.control.requiredTrimmed();
         control = new FormControl();
         error = { requiredTrimmed: true };

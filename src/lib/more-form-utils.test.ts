@@ -1,7 +1,7 @@
 import { FormControl } from "@angular/forms";
 import { MoreFormUtils } from "./more-form-utils";
 
-fdescribe("MoreFormUtils", () => {
+describe("MoreFormUtils", () => {
   let control: FormControl;
 
   beforeEach(() => {

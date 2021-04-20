@@ -1,8 +1,5 @@
-import { FormControl, ReactiveFormsModule, ValidatorFn } from "@angular/forms";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { TestBed } from '@angular/core/testing';
-import { MoreValidators } from "../../index";
+import {FormControl, ValidatorFn} from "@angular/forms";
+import {MoreValidators} from "../../index";
 
 describe('Max Length Trimmed (3)', () => {
     let control: FormControl;
@@ -10,19 +7,15 @@ describe('Max Length Trimmed (3)', () => {
     let error: { maxLengthTrimmed: boolean };
 
     beforeAll(() => {
-        TestBed.configureTestingModule({
-            imports: [ReactiveFormsModule, BrowserAnimationsModule, MoreValidators],
-            declarations: [MoreValidators]
-        })
         validator = MoreValidators.control.maxLengthTrimmed(3);
         control = new FormControl();
-        error = { maxLengthTrimmed: true };
+        error = {maxLengthTrimmed: true};
     })
 
     test('undefined control should be invalid', () => {
         expect(validator(undefined)).toEqual(error);
     })
-    
+
     test('undefined should be invalid', () => {
         control.setValue(undefined);
         expect(validator(control)).toEqual(error);

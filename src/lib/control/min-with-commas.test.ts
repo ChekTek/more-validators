@@ -1,10 +1,5 @@
-import { FormControl, ValidatorFn, ReactiveFormsModule, Validators } from "@angular/forms";
-
-import { TestBed } from '@angular/core/testing';
-
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
-import { MoreValidators } from "../../index";
+import {FormControl, ValidatorFn} from "@angular/forms";
+import {MoreValidators} from "../../index";
 
 describe('Min With Commas', () => {
     const min = 1001;
@@ -13,13 +8,9 @@ describe('Min With Commas', () => {
     let error: { minWithCommas: boolean };
 
     beforeAll(() => {
-        TestBed.configureTestingModule({
-            imports: [ReactiveFormsModule, BrowserAnimationsModule, MoreValidators],
-            declarations: [MoreValidators]
-        })
         validator = MoreValidators.control.minWithCommas(min)
         control = new FormControl();
-        error = { minWithCommas: true };
+        error = {minWithCommas: true};
     })
 
     test('undefined control should be invalid', () => {

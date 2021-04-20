@@ -1,10 +1,5 @@
-import { FormControl, ValidatorFn, ReactiveFormsModule, Validators } from "@angular/forms";
-
-import { TestBed } from '@angular/core/testing';
-
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
-import { MoreValidators } from "../../index";
+import {FormControl, ValidatorFn} from "@angular/forms";
+import {MoreValidators} from "../../index";
 
 describe('Max With Commas', () => {
     const max = 1001;
@@ -13,13 +8,9 @@ describe('Max With Commas', () => {
     let error: { maxWithCommas: boolean };
 
     beforeAll(() => {
-        TestBed.configureTestingModule({
-            imports: [ReactiveFormsModule, BrowserAnimationsModule, MoreValidators],
-            declarations: [MoreValidators]
-        })
         validator = MoreValidators.control.maxWithCommas(max)
         control = new FormControl();
-        error = { maxWithCommas: true };
+        error = {maxWithCommas: true};
     })
 
     test('undefined control should be invalid', () => {

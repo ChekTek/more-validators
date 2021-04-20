@@ -1,7 +1,4 @@
-import { FormControl, ReactiveFormsModule, ValidatorFn } from "@angular/forms";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
-import { TestBed } from "@angular/core/testing";
+import { FormControl, ValidatorFn } from "@angular/forms";
 import { MoreValidators } from "../../index";
 
 describe("Numeric", () => {
@@ -10,10 +7,6 @@ describe("Numeric", () => {
   let error: { numeric: boolean };
 
   beforeAll(() => {
-    TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, BrowserAnimationsModule, MoreValidators],
-      declarations: [MoreValidators],
-    });
     validator = MoreValidators.control.numeric();
     control = new FormControl("");
     error = { numeric: true };
